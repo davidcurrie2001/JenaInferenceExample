@@ -57,13 +57,13 @@ public class SameAs {
 
 		System.out.println("Run model spec comparison");
 		
-		// Ontology model class which uses the micro OWL inference engine	
+		// Ontology model class which uses the OWL_MEM spec	
 		runQueries(OntModelSpec.OWL_MEM, "OWL_MEM");
 		
-		// Ontology model class which uses the micro OWL inference engine	
+		// Ontology model class which uses the OWL_MEM_MICRO_RULE_INF spec	
 		runQueries(OntModelSpec.OWL_MEM_MICRO_RULE_INF, "OWL_MEM_MICRO_RULE_INF");
 		
-		// this specification also does sameAs inference
+		// Ontology model class which uses the OWL_MEM_RULE_INF spec
 		runQueries(OntModelSpec.OWL_MEM_RULE_INF, "OWL_MEM_RULE_INF");
 		
 		System.out.println("Finished");
