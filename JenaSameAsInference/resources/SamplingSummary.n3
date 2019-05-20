@@ -1,0 +1,46 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix mi:   <http://www.marine.ie/SemanticFishData#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+
+mi:SpeciesType	a	owl:Class	.
+mi:PelagicSpecies
+       a       owl:Class ;
+       rdfs:subClassOf mi:SpeciesType .
+       
+       
+       
+mi:SamplingSummary
+		a	owl:Class;
+		rdfs:comment "A class to summarise sampling activity"
+		.
+		
+mi:isOfSpecies  			a owl:ObjectProperty .
+       
+mi:PelagicSample
+	a owl:Class;
+	rdfs:subClassOf mi:SamplingSummary;
+		owl:equivalentClass
+               [ a       owl:Restriction ;
+                 owl:onProperty mi:isOfSpecies ;
+                 owl:someValuesFrom mi:PelagicSpecies
+               ] 
+	.
+	
+
+mi:SpeciesA a mi:SpeciesType .
+mi:SpeciesB a mi:SpeciesType .
+
+mi:Species1 a mi:OtherSpeciesType .
+mi:Species2 a mi:OtherSpeciesType .
+
+mi:123 a mi:SamplingSummary . 
+mi:123 mi:isOfSpecies mi:SpeciesA .
+
+mi:124 a mi:SamplingSummary . 
+mi:124 mi:isOfSpecies mi:SpeciesB .
+
+mi:SpeciesA owl:sameAs mi:Species1 .
+mi:SpeciesB a mi:PelagicSpecies . 
+
